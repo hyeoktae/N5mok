@@ -4,9 +4,10 @@
 //
 //  Created by Alex Lee on 22/05/2019.
 //  Copyright © 2019 hyeoktae kwon. All rights reserved.
-//
+// 
 
 import UIKit
+import Firebase
 
 
 class TestViewController: UIViewController {
@@ -16,6 +17,8 @@ class TestViewController: UIViewController {
 
         view.backgroundColor = .blue
         
+        let databaseRef = Database.database().reference()
+        databaseRef.child("test").childByAutoId()
         
     }
     
