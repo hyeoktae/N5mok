@@ -34,8 +34,8 @@ struct Time {
 
 struct UI {
     static let menuCount = 3
-    static let menuSize: CGFloat = 60
-    static let distance: CGFloat = 130
+    static let menuSize: CGFloat = 40
+    static let distance: CGFloat = 45
     static let minScale: CGFloat = 0.3
 }
 

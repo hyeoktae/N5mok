@@ -10,6 +10,8 @@ import UIKit
 
 final class FindGameVC: UIViewController {
     
+    let popUpVC = PopUpVC()
+    
     private var firstMenuContainer: [UIButton] = []
     
     var loginUsers = [User]()
@@ -22,14 +24,12 @@ final class FindGameVC: UIViewController {
         label.font = label.font.withSize(25)
         label.text = "ID"
         label.textColor = .black
-        label.backgroundColor = .green
         return label
         }()
     
     let profileImg: UIImageView = {
         let img = UIImageView()
         img.translatesAutoresizingMaskIntoConstraints = false
-        img.backgroundColor = .yellow
         img.contentMode = .scaleAspectFit
         return img
     }()
@@ -37,24 +37,14 @@ final class FindGameVC: UIViewController {
     let IDTblView: UITableView = {
         let tbl = UITableView()
         tbl.translatesAutoresizingMaskIntoConstraints = false
-        tbl.backgroundColor = .blue
+        tbl.backgroundColor = #colorLiteral(red: 0.7254902124, green: 0.4784313738, blue: 0.09803921729, alpha: 1)
         tbl.register(UITableViewCell.self, forCellReuseIdentifier: "cellId")
         return tbl
-    }()
-    
-    let fightBtn: UIButton = {
-        let btn = UIButton(type: .system)
-        btn.translatesAutoresizingMaskIntoConstraints = false
-        btn.setTitle("대국하기", for: .normal)
-        btn.titleLabel?.font = btn.titleLabel?.font.withSize(40)
-        btn.titleLabel?.textColor = .black
-        btn.backgroundColor = .gray
-        return btn
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = #colorLiteral(red: 0.5058823824, green: 0.3372549117, blue: 0.06666667014, alpha: 1)
         addSubViews()
         IDTblView.dataSource = self
         setupFirstMenu()
@@ -70,7 +60,7 @@ final class FindGameVC: UIViewController {
     }
     
     func addSubViews() {
-        let views = [fightBtn, IDTblView, profileImg, IDlabel]
+        let views = [IDTblView, profileImg, IDlabel]
         views.forEach { view.addSubview($0) }
         IDTblView.refreshControl = refreshC
         refreshC.addTarget(self, action: #selector(reloadTblView(_:)), for: .valueChanged)
@@ -87,7 +77,7 @@ final class FindGameVC: UIViewController {
         let menuTitle = ["more", "logout", "option"]
         for i in (0..<UI.menuCount) {
             let menuFrame = CGRect(
-                x: view.bounds.width - 100, y: view.bounds.height - 120,
+                x: view.bounds.width - 80, y: view.bounds.height - view.bounds.height + 50,
                 width: UI.menuSize, height: UI.menuSize
             )
             let button = makeMenuButton(with: menuFrame, title: menuTitle[i])
@@ -117,10 +107,10 @@ final class FindGameVC: UIViewController {
                     guard idx != 0 else { continue }
                     if button.isSelected {
                         menu.transform = .identity
-                        menu.center.y -= UI.distance * CGFloat(idx)
+                        menu.center.y += UI.distance * CGFloat(idx)
                     } else {
                         menu.transform = menu.transform.scaledBy(x: UI.minScale, y: UI.minScale)
-                        menu.center.y += UI.distance * CGFloat(idx)
+                        menu.center.y -= UI.distance * CGFloat(idx)
                     }
                 }
         })
@@ -140,13 +130,14 @@ final class FindGameVC: UIViewController {
     }
     
     private func makeMenuButton(with frame: CGRect, title: String) -> UIButton {
-        let button = UIButton(frame: frame)
-        button.backgroundColor = randomColorGenerator()
-        button.layer.cornerRadius = button.bounds.width / 2
-        button.setTitle(title, for: .normal)
-        button.transform = button.transform.scaledBy(x: UI.minScale, y: UI.minScale)
-        view.addSubview(button)
-        return button
+        let btn = UIButton(frame: frame)
+        btn.backgroundColor = randomColorGenerator()
+        btn.layer.cornerRadius = btn.bounds.width / 2
+        btn.setTitle(title, for: .normal)
+        btn.titleLabel?.font = btn.titleLabel?.font.withSize(10)
+        btn.transform = btn.transform.scaledBy(x: UI.minScale, y: UI.minScale)
+        view.addSubview(btn)
+        return btn
     }
     
     func loadProfile() {
@@ -224,12 +215,8 @@ final class FindGameVC: UIViewController {
         IDTblView.topAnchor.constraint(equalTo: IDlabel.bottomAnchor, constant: 20).isActive = true
         IDTblView.leadingAnchor.constraint(equalTo: guide.leadingAnchor, constant: 20).isActive = true
         IDTblView.trailingAnchor.constraint(equalTo: guide.trailingAnchor, constant: -20).isActive = true
-        IDTblView.bottomAnchor.constraint(equalTo: fightBtn.topAnchor, constant: -50).isActive = true
-        IDTblView.heightAnchor.constraint(equalTo: guide.heightAnchor, multiplier: 0.7).isActive = true
-        
-        fightBtn.topAnchor.constraint(equalTo: IDTblView.bottomAnchor, constant: 50).isActive = true
-        fightBtn.centerXAnchor.constraint(equalTo: guide.centerXAnchor).isActive = true
-        fightBtn.bottomAnchor.constraint(equalTo: guide.bottomAnchor, constant: -30).isActive = true
+        IDTblView.bottomAnchor.constraint(equalTo: guide.bottomAnchor, constant: -20).isActive = true
+        IDTblView.heightAnchor.constraint(equalTo: guide.heightAnchor, multiplier: 0.75).isActive = true
         
     }
 }
@@ -240,13 +227,37 @@ extension FindGameVC: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cellBtn = UIButton(type: .custom)
+        cellBtn.frame = CGRect(x: 0, y: 0, width: 40, height: 30)
+        cellBtn.setTitle("한판?", for: .normal)
+        cellBtn.tag = indexPath.row
+        cellBtn.addTarget(self, action: #selector(FindGameVC.didTapCellBtn(_:)), for: .touchUpInside)
+        
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath)
         
         cell.textLabel?.text = loginUsers[indexPath.row].name
         cell.imageView?.image = loginUsers[indexPath.row].playerImg
+        cell.backgroundColor = #colorLiteral(red: 0.7254902124, green: 0.4784313738, blue: 0.09803921729, alpha: 1)
+//        cell.layer.borderWidth = 1
+        cell.accessoryView = cellBtn as UIView
         
         return cell
     }
 
-
+    @objc func didTapCellBtn(_ sender: UIButton) {
+        popUpVC.modalPresentationStyle = .overCurrentContext
+        let vsName = loginUsers[sender.tag].name
+        let myName = IDlabel.text
+        popUpVC.vs = vsName
+        if vsName != myName {
+            popUpVC.titleLabel.text = "\(loginUsers[sender.tag].name)님과 한판 뜰래요?"
+            popUpVC.yesBtn.isEnabled = true
+        } else {
+            popUpVC.titleLabel.text = "자기와 한판은 불가능!!"
+            popUpVC.yesBtn.isEnabled = false
+        }
+        present(popUpVC, animated: true)
+    }
 }

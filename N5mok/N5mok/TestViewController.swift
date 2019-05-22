@@ -19,7 +19,6 @@ final class TestViewController: UIViewController {
         
         let databaseRef = Database.database().reference()
         databaseRef.child("test").childByAutoId()
-        
     }
     
 

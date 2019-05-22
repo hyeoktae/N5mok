@@ -17,6 +17,8 @@
 		5267E588229468F200D7FF1E /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5267E587229468F200D7FF1E /* LoginVC.swift */; };
 		5267E58A2294695700D7FF1E /* FindGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5267E5892294695700D7FF1E /* FindGameVC.swift */; };
 		5267E58E229509F300D7FF1E /* Datas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5267E58D229509F300D7FF1E /* Datas.swift */; };
+		52FA3E0F2295AB900031F377 /* PopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FA3E0E2295AB900031F377 /* PopUpVC.swift */; };
+		52FA3E112295B7E90031F377 /* ReadText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FA3E102295B7E90031F377 /* ReadText.swift */; };
 		A0F0727F397882058F4CBC6A /* Pods_N5mok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8BBB3100ED5E0BB8739A3BC /* Pods_N5mok.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +37,8 @@
 		5267E587229468F200D7FF1E /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		5267E5892294695700D7FF1E /* FindGameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindGameVC.swift; sourceTree = "<group>"; };
 		5267E58D229509F300D7FF1E /* Datas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Datas.swift; sourceTree = "<group>"; };
+		52FA3E0E2295AB900031F377 /* PopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpVC.swift; sourceTree = "<group>"; };
+		52FA3E102295B7E90031F377 /* ReadText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadText.swift; sourceTree = "<group>"; };
 		9764B4DD4B15B892E42C4C8C /* Pods-N5mok.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-N5mok.release.xcconfig"; path = "Target Support Files/Pods-N5mok/Pods-N5mok.release.xcconfig"; sourceTree = "<group>"; };
 		A8BBB3100ED5E0BB8739A3BC /* Pods_N5mok.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_N5mok.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -84,6 +88,8 @@
 			children = (
 				5267E56E22945F1700D7FF1E /* AppDelegate.swift */,
 				5267E5892294695700D7FF1E /* FindGameVC.swift */,
+				52FA3E102295B7E90031F377 /* ReadText.swift */,
+				52FA3E0E2295AB900031F377 /* PopUpVC.swift */,
 				438163102295043A0007C376 /* TestViewController.swift */,
 				5267E587229468F200D7FF1E /* LoginVC.swift */,
 				5267E58D229509F300D7FF1E /* Datas.swift */,
@@ -234,7 +240,9 @@
 			files = (
 				5267E588229468F200D7FF1E /* LoginVC.swift in Sources */,
 				5267E56F22945F1700D7FF1E /* AppDelegate.swift in Sources */,
+				52FA3E112295B7E90031F377 /* ReadText.swift in Sources */,
 				5267E58E229509F300D7FF1E /* Datas.swift in Sources */,
+				52FA3E0F2295AB900031F377 /* PopUpVC.swift in Sources */,
 				438163112295043A0007C376 /* TestViewController.swift in Sources */,
 				5267E58A2294695700D7FF1E /* FindGameVC.swift in Sources */,
 			);
