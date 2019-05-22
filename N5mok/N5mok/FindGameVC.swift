@@ -9,22 +9,37 @@
 import UIKit
 
 class FindGameVC: UIViewController {
+    
+    let logoutBtn: UIButton = {
+        let btn = UIButton()
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.setTitle("Logout", for: .normal)
+        btn.addTarget(self, action: #selector(didTapLogoutBtn(_:)), for: .touchUpInside)
+        return btn
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        view.backgroundColor = .gray
+        autoLayout()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func didTapLogoutBtn(_ sender: UIButton) {
+        KOSession.shared().logoutAndClose { (success, error) -> Void in
+            if let error = error {
+                return print(error.localizedDescription)
+            }
+            // Logout success
+            AppDelegate.instance.setupRootViewController()
+        }
     }
-    */
-
+    
+    func autoLayout() {
+        let guide = view.safeAreaLayoutGuide
+        
+        view.addSubview(logoutBtn)
+        
+        logoutBtn.bottomAnchor.constraint(equalTo: guide.bottomAnchor, constant: -50).isActive = true
+        logoutBtn.centerXAnchor.constraint(equalTo: guide.centerXAnchor).isActive = true
+    }
 }

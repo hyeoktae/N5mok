@@ -14,6 +14,7 @@ class LoginVC: UIViewController {
         let btn = UIButton()
         btn.setImage(UIImage(named: "KakaoLogin"), for: .normal)
         btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.addTarget(self, action: #selector(loginForKakao(_:)), for: .touchUpInside)
         return btn
     }()
 
@@ -24,13 +25,35 @@ class LoginVC: UIViewController {
         
     }
     
+    @objc func loginForKakao(_ sender: UIButton) {
+        guard let session = KOSession.shared() else {return}
+        
+        session.isOpen() ? session.close() : ()
+        
+        session.open(completionHandler: { (error) in
+            if !session.isOpen() {
+                if let error = error as NSError? {
+                    switch error.code {
+                    case Int(KOErrorCancelled.rawValue) :
+                        print("cancelled")
+                    default:
+                        print(error.localizedDescription)
+                    }
+                }
+            } else {
+                print("Login Success")
+                AppDelegate.instance.setupRootViewController()
+            }
+            
+        }, authTypes: [NSNumber(value: KOAuthType.talk.rawValue)])
+    }
+    
     func autoLayout() {
         let guide = view.safeAreaLayoutGuide
         
         view.addSubview(loginBtn)
         
         loginBtn.bottomAnchor.constraint(equalTo: guide.bottomAnchor, constant: -50).isActive = true
-        loginBtn.leadingAnchor.constraint(equalTo: guide.leadingAnchor, constant: 20).isActive = true
-        loginBtn.trailingAnchor.constraint(equalTo: guide.trailingAnchor, constant: -20).isActive = true
+        loginBtn.centerXAnchor.constraint(equalTo: guide.centerXAnchor).isActive = true
     }
 }
