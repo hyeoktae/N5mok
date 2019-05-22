@@ -9,22 +9,28 @@
 import UIKit
 
 class LoginVC: UIViewController {
+    
+    let loginBtn: UIButton = {
+        let btn = UIButton()
+        btn.setImage(UIImage(named: "KakaoLogin"), for: .normal)
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        return btn
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        view.backgroundColor = .white
+        autoLayout()
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func autoLayout() {
+        let guide = view.safeAreaLayoutGuide
+        
+        view.addSubview(loginBtn)
+        
+        loginBtn.bottomAnchor.constraint(equalTo: guide.bottomAnchor, constant: -50).isActive = true
+        loginBtn.leadingAnchor.constraint(equalTo: guide.leadingAnchor, constant: 20).isActive = true
+        loginBtn.trailingAnchor.constraint(equalTo: guide.trailingAnchor, constant: -20).isActive = true
     }
-    */
-
 }
