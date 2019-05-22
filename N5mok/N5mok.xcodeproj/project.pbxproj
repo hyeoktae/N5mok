@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		438163112295043A0007C376 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438163102295043A0007C376 /* TestViewController.swift */; };
 		5267E56F22945F1700D7FF1E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5267E56E22945F1700D7FF1E /* AppDelegate.swift */; };
 		5267E57422945F1700D7FF1E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5267E57222945F1700D7FF1E /* Main.storyboard */; };
 		5267E57622945F1800D7FF1E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5267E57522945F1800D7FF1E /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		31ACB2E1BF883393A51C17D6 /* Pods-N5mok.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-N5mok.debug.xcconfig"; path = "Target Support Files/Pods-N5mok/Pods-N5mok.debug.xcconfig"; sourceTree = "<group>"; };
+		438163102295043A0007C376 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		5267E56B22945F1700D7FF1E /* N5mok.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = N5mok.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5267E56E22945F1700D7FF1E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5267E57322945F1700D7FF1E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 			children = (
 				5267E56E22945F1700D7FF1E /* AppDelegate.swift */,
 				5267E5892294695700D7FF1E /* FindGameVC.swift */,
+				438163102295043A0007C376 /* TestViewController.swift */,
 				5267E587229468F200D7FF1E /* LoginVC.swift */,
 				5267E57222945F1700D7FF1E /* Main.storyboard */,
 				5267E57522945F1800D7FF1E /* Assets.xcassets */,
@@ -228,6 +231,7 @@
 			files = (
 				5267E588229468F200D7FF1E /* LoginVC.swift in Sources */,
 				5267E56F22945F1700D7FF1E /* AppDelegate.swift in Sources */,
+				438163112295043A0007C376 /* TestViewController.swift in Sources */,
 				5267E58A2294695700D7FF1E /* FindGameVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
