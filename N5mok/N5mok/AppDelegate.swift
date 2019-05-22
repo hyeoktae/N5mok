@@ -67,7 +67,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = .white
         window?.rootViewController = vc
         window?.makeKeyAndVisible()
-        
     }
 }
 

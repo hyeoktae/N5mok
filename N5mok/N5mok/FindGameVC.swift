@@ -12,6 +12,10 @@ final class FindGameVC: UIViewController {
     
     private var firstMenuContainer: [UIButton] = []
     
+    var loginUsers = [User]()
+    
+    let refreshC = UIRefreshControl()
+    
     var IDlabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -34,6 +38,7 @@ final class FindGameVC: UIViewController {
         let tbl = UITableView()
         tbl.translatesAutoresizingMaskIntoConstraints = false
         tbl.backgroundColor = .blue
+        tbl.register(UITableViewCell.self, forCellReuseIdentifier: "cellId")
         return tbl
     }()
     
@@ -51,24 +56,24 @@ final class FindGameVC: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         addSubViews()
+        IDTblView.dataSource = self
         setupFirstMenu()
         loadProfile()
-        uploadUserInfo()
-    }
-    
-    @objc func didTapLogoutBtn(_ sender: UIButton) {
-        KOSession.shared().logoutAndClose { (success, error) -> Void in
-            if let error = error {
-                return print(error.localizedDescription)
+        downloadUsersInfo(){
+            if $0{
+                self.loginUsers = usersInfo.filter{$0.loginState == true}
+                self.IDTblView.reloadData()
+            }else{
+                print("fail to down")
             }
-            // Logout success
-            AppDelegate.instance.setupRootViewController()
         }
     }
     
     func addSubViews() {
         let views = [fightBtn, IDTblView, profileImg, IDlabel]
         views.forEach { view.addSubview($0) }
+        IDTblView.refreshControl = refreshC
+        refreshC.addTarget(self, action: #selector(reloadTblView(_:)), for: .valueChanged)
     }
     
     private func randomColorGenerator() -> UIColor {
@@ -121,6 +126,19 @@ final class FindGameVC: UIViewController {
         })
     }
     
+    @objc func didTapLogoutBtn(_ sender: UIButton) {
+        toFalseLoginState(){
+            self.loginUsers = usersInfo.filter{$0.loginState == true}
+            self.IDTblView.reloadData()
+        }
+        KOSession.shared().logoutAndClose { (success, error) -> Void in
+            if let error = error {
+                return print(error.localizedDescription)
+            }
+            AppDelegate.instance.setupRootViewController()
+        }
+    }
+    
     private func makeMenuButton(with frame: CGRect, title: String) -> UIButton {
         let button = UIButton(frame: frame)
         button.backgroundColor = randomColorGenerator()
@@ -142,7 +160,6 @@ final class FindGameVC: UIViewController {
                 let thumbnailImageLink = me.thumbnailImageURL
                 else { return }
             
-            print(me)
             playerID = nickName
             self?.IDlabel.text = playerID
             
@@ -160,11 +177,36 @@ final class FindGameVC: UIViewController {
                             self?.profileImg.image = playerProfileImg
                         }
                         self?.autoLayout()
+                        uploadUserInfo(){
+                            downloadUsersInfo(){
+                                if $0{
+                                    self?.loginUsers = usersInfo.filter{$0.loginState == true}
+                                    self?.IDTblView.reloadData()
+                                }else{
+                                    print("fail to down")
+                                }
+                            }
+                        }
                     }
                 }).resume()
             }
         }
     }
+    
+    @objc func reloadTblView(_ sender: UIRefreshControl) {
+        loginUsers = usersInfo.filter{$0.loginState == true}
+            downloadUsersInfo(){
+                if $0{
+                    self.loginUsers = usersInfo.filter{$0.loginState == true}
+                    self.IDTblView.reloadData()
+                }else{
+                    print("fail to down")
+                }
+            }
+        IDTblView.reloadData()
+        refreshC.endRefreshing()
+    }
+    
     
     func autoLayout() {
         let guide = view.safeAreaLayoutGuide
@@ -177,7 +219,6 @@ final class FindGameVC: UIViewController {
         
         IDlabel.leadingAnchor.constraint(equalTo: profileImg.trailingAnchor, constant: 50).isActive = true
         IDlabel.topAnchor.constraint(equalTo: guide.topAnchor, constant: 20).isActive = true
-//        IDlabel.trailingAnchor.constraint(equalTo: guide.trailingAnchor, constant: -50).isActive = true
         IDlabel.bottomAnchor.constraint(equalTo: IDTblView.topAnchor, constant: -20).isActive = true
         
         IDTblView.topAnchor.constraint(equalTo: IDlabel.bottomAnchor, constant: 20).isActive = true
@@ -191,4 +232,21 @@ final class FindGameVC: UIViewController {
         fightBtn.bottomAnchor.constraint(equalTo: guide.bottomAnchor, constant: -30).isActive = true
         
     }
+}
+
+extension FindGameVC: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return loginUsers.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath)
+        
+        cell.textLabel?.text = loginUsers[indexPath.row].name
+        cell.imageView?.image = loginUsers[indexPath.row].playerImg
+        
+        return cell
+    }
+
+
 }

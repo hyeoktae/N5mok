@@ -10,7 +10,6 @@ import UIKit
 
 final class LoginVC: UIViewController {
     
-    
     let loginBtn: UIButton = {
         let btn = UIButton()
         btn.setImage(UIImage(named: "KakaoLogin"), for: .normal)
@@ -23,7 +22,6 @@ final class LoginVC: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         autoLayout()
-        
     }
     
     @objc func loginForKakao(_ sender: UIButton) {
