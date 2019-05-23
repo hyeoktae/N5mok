@@ -99,14 +99,19 @@
 				5267E56E22945F1700D7FF1E /* AppDelegate.swift */,
 				5267E5892294695700D7FF1E /* FindGameVC.swift */,
 <<<<<<< HEAD
+<<<<<<< HEAD
 				52FA3E102295B7E90031F377 /* ReadText.swift */,
 				52FA3E0E2295AB900031F377 /* PopUpVC.swift */,
 				438163102295043A0007C376 /* TestViewController.swift */,
 =======
 				4381631A22962D1F0007C376 /* ChatTableViewCell.swift */,
 				4381631B22962D1F0007C376 /* ChatTableViewCell.xib */,
+=======
+>>>>>>> Alex
 				43816312229522730007C376 /* PlayGameVC.swift */,
 				438163142295284F0007C376 /* ChatRoomCell.swift */,
+				4381631A22962D1F0007C376 /* ChatTableViewCell.swift */,
+				4381631B22962D1F0007C376 /* ChatTableViewCell.xib */,
 				4381631822954C490007C376 /* ChatCell.swift */,
 				43816316229528630007C376 /* OmokGameCell.swift */,
 >>>>>>> 8095980921d4bbf5e0da46b6c3ecc6a85838e226
