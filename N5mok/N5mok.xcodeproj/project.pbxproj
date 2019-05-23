@@ -7,12 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		43816313229522730007C376 /* PlayGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43816312229522730007C376 /* PlayGameVC.swift */; };
-		438163152295284F0007C376 /* ChatRoomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438163142295284F0007C376 /* ChatRoomCell.swift */; };
-		43816317229528630007C376 /* OmokGameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43816316229528630007C376 /* OmokGameCell.swift */; };
-		4381631922954C490007C376 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4381631822954C490007C376 /* ChatCell.swift */; };
-		4381631C22962D1F0007C376 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4381631A22962D1F0007C376 /* ChatTableViewCell.swift */; };
-		4381631D22962D1F0007C376 /* ChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4381631B22962D1F0007C376 /* ChatTableViewCell.xib */; };
+		438163112295043A0007C376 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438163102295043A0007C376 /* TestViewController.swift */; };
 		5267E56F22945F1700D7FF1E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5267E56E22945F1700D7FF1E /* AppDelegate.swift */; };
 		5267E57422945F1700D7FF1E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5267E57222945F1700D7FF1E /* Main.storyboard */; };
 		5267E57622945F1800D7FF1E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5267E57522945F1800D7FF1E /* Assets.xcassets */; };
@@ -22,6 +17,12 @@
 		5267E588229468F200D7FF1E /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5267E587229468F200D7FF1E /* LoginVC.swift */; };
 		5267E58A2294695700D7FF1E /* FindGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5267E5892294695700D7FF1E /* FindGameVC.swift */; };
 		5267E58E229509F300D7FF1E /* Datas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5267E58D229509F300D7FF1E /* Datas.swift */; };
+		526DCB482296419A00D28DAD /* PlayGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526DCB472296419A00D28DAD /* PlayGameVC.swift */; };
+		526DCB4A2296421A00D28DAD /* OmokGameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526DCB492296421A00D28DAD /* OmokGameCell.swift */; };
+		526DCB4D2296427B00D28DAD /* ChatRoomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526DCB4C2296427B00D28DAD /* ChatRoomCell.swift */; };
+		526DCB50229642CB00D28DAD /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526DCB4E229642CB00D28DAD /* ChatTableViewCell.swift */; };
+		526DCB51229642CB00D28DAD /* ChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 526DCB4F229642CB00D28DAD /* ChatTableViewCell.xib */; };
+		526DCB542296438200D28DAD /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526DCB532296438200D28DAD /* Message.swift */; };
 		52FA3E0F2295AB900031F377 /* PopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FA3E0E2295AB900031F377 /* PopUpVC.swift */; };
 		52FA3E112295B7E90031F377 /* ReadText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FA3E102295B7E90031F377 /* ReadText.swift */; };
 		A0F0727F397882058F4CBC6A /* Pods_N5mok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8BBB3100ED5E0BB8739A3BC /* Pods_N5mok.framework */; };
@@ -29,12 +30,7 @@
 
 /* Begin PBXFileReference section */
 		31ACB2E1BF883393A51C17D6 /* Pods-N5mok.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-N5mok.debug.xcconfig"; path = "Target Support Files/Pods-N5mok/Pods-N5mok.debug.xcconfig"; sourceTree = "<group>"; };
-		43816312229522730007C376 /* PlayGameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayGameVC.swift; sourceTree = "<group>"; };
-		438163142295284F0007C376 /* ChatRoomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomCell.swift; sourceTree = "<group>"; };
-		43816316229528630007C376 /* OmokGameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmokGameCell.swift; sourceTree = "<group>"; };
-		4381631822954C490007C376 /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
-		4381631A22962D1F0007C376 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
-		4381631B22962D1F0007C376 /* ChatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatTableViewCell.xib; sourceTree = "<group>"; };
+		438163102295043A0007C376 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		5267E56B22945F1700D7FF1E /* N5mok.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = N5mok.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5267E56E22945F1700D7FF1E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5267E57322945F1700D7FF1E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -47,6 +43,12 @@
 		5267E587229468F200D7FF1E /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		5267E5892294695700D7FF1E /* FindGameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindGameVC.swift; sourceTree = "<group>"; };
 		5267E58D229509F300D7FF1E /* Datas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Datas.swift; sourceTree = "<group>"; };
+		526DCB472296419A00D28DAD /* PlayGameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayGameVC.swift; sourceTree = "<group>"; };
+		526DCB492296421A00D28DAD /* OmokGameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmokGameCell.swift; sourceTree = "<group>"; };
+		526DCB4C2296427B00D28DAD /* ChatRoomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomCell.swift; sourceTree = "<group>"; };
+		526DCB4E229642CB00D28DAD /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
+		526DCB4F229642CB00D28DAD /* ChatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatTableViewCell.xib; sourceTree = "<group>"; };
+		526DCB532296438200D28DAD /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		52FA3E0E2295AB900031F377 /* PopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpVC.swift; sourceTree = "<group>"; };
 		52FA3E102295B7E90031F377 /* ReadText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadText.swift; sourceTree = "<group>"; };
 		9764B4DD4B15B892E42C4C8C /* Pods-N5mok.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-N5mok.release.xcconfig"; path = "Target Support Files/Pods-N5mok/Pods-N5mok.release.xcconfig"; sourceTree = "<group>"; };
@@ -97,26 +99,9 @@
 			isa = PBXGroup;
 			children = (
 				5267E56E22945F1700D7FF1E /* AppDelegate.swift */,
-				5267E5892294695700D7FF1E /* FindGameVC.swift */,
-<<<<<<< HEAD
-<<<<<<< HEAD
-				52FA3E102295B7E90031F377 /* ReadText.swift */,
-				52FA3E0E2295AB900031F377 /* PopUpVC.swift */,
-				438163102295043A0007C376 /* TestViewController.swift */,
-=======
-				4381631A22962D1F0007C376 /* ChatTableViewCell.swift */,
-				4381631B22962D1F0007C376 /* ChatTableViewCell.xib */,
-=======
->>>>>>> Alex
-				43816312229522730007C376 /* PlayGameVC.swift */,
-				438163142295284F0007C376 /* ChatRoomCell.swift */,
-				4381631A22962D1F0007C376 /* ChatTableViewCell.swift */,
-				4381631B22962D1F0007C376 /* ChatTableViewCell.xib */,
-				4381631822954C490007C376 /* ChatCell.swift */,
-				43816316229528630007C376 /* OmokGameCell.swift */,
->>>>>>> 8095980921d4bbf5e0da46b6c3ecc6a85838e226
-				5267E587229468F200D7FF1E /* LoginVC.swift */,
-				5267E58D229509F300D7FF1E /* Datas.swift */,
+				5284A54D2296479600017EA9 /* VC */,
+				526DCB522296436800D28DAD /* Foundation */,
+				526DCB4B2296425600D28DAD /* Cells */,
 				5267E57222945F1700D7FF1E /* Main.storyboard */,
 				5267E57522945F1800D7FF1E /* Assets.xcassets */,
 				5267E57722945F1800D7FF1E /* LaunchScreen.storyboard */,
@@ -125,6 +110,39 @@
 				5267E5842294667A00D7FF1E /* N5mok-Bridging-Header.h */,
 			);
 			path = N5mok;
+			sourceTree = "<group>";
+		};
+		526DCB4B2296425600D28DAD /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				526DCB4C2296427B00D28DAD /* ChatRoomCell.swift */,
+				526DCB4E229642CB00D28DAD /* ChatTableViewCell.swift */,
+				526DCB4F229642CB00D28DAD /* ChatTableViewCell.xib */,
+				526DCB492296421A00D28DAD /* OmokGameCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		526DCB522296436800D28DAD /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				52FA3E102295B7E90031F377 /* ReadText.swift */,
+				5267E58D229509F300D7FF1E /* Datas.swift */,
+				526DCB532296438200D28DAD /* Message.swift */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		5284A54D2296479600017EA9 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				5267E5892294695700D7FF1E /* FindGameVC.swift */,
+				52FA3E0E2295AB900031F377 /* PopUpVC.swift */,
+				438163102295043A0007C376 /* TestViewController.swift */,
+				5267E587229468F200D7FF1E /* LoginVC.swift */,
+				526DCB472296419A00D28DAD /* PlayGameVC.swift */,
+			);
+			path = VC;
 			sourceTree = "<group>";
 		};
 		B1B50F98D4F1EF24F486C555 /* Pods */ = {
@@ -199,7 +217,7 @@
 			files = (
 				5267E57922945F1800D7FF1E /* LaunchScreen.storyboard in Resources */,
 				5267E5812294617E00D7FF1E /* GoogleService-Info.plist in Resources */,
-				4381631D22962D1F0007C376 /* ChatTableViewCell.xib in Resources */,
+				526DCB51229642CB00D28DAD /* ChatTableViewCell.xib in Resources */,
 				5267E57622945F1800D7FF1E /* Assets.xcassets in Resources */,
 				5267E57422945F1700D7FF1E /* Main.storyboard in Resources */,
 			);
@@ -264,19 +282,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				5267E588229468F200D7FF1E /* LoginVC.swift in Sources */,
-				4381631922954C490007C376 /* ChatCell.swift in Sources */,
-				43816313229522730007C376 /* PlayGameVC.swift in Sources */,
-				4381631C22962D1F0007C376 /* ChatTableViewCell.swift in Sources */,
 				5267E56F22945F1700D7FF1E /* AppDelegate.swift in Sources */,
 				52FA3E112295B7E90031F377 /* ReadText.swift in Sources */,
 				5267E58E229509F300D7FF1E /* Datas.swift in Sources */,
-<<<<<<< HEAD
+				526DCB482296419A00D28DAD /* PlayGameVC.swift in Sources */,
+				526DCB50229642CB00D28DAD /* ChatTableViewCell.swift in Sources */,
+				526DCB4A2296421A00D28DAD /* OmokGameCell.swift in Sources */,
+				526DCB4D2296427B00D28DAD /* ChatRoomCell.swift in Sources */,
 				52FA3E0F2295AB900031F377 /* PopUpVC.swift in Sources */,
+				526DCB542296438200D28DAD /* Message.swift in Sources */,
 				438163112295043A0007C376 /* TestViewController.swift in Sources */,
-=======
-				43816317229528630007C376 /* OmokGameCell.swift in Sources */,
-				438163152295284F0007C376 /* ChatRoomCell.swift in Sources */,
->>>>>>> 8095980921d4bbf5e0da46b6c3ecc6a85838e226
 				5267E58A2294695700D7FF1E /* FindGameVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -5,9 +5,7 @@
 //  Created by Alex Lee on 22/05/2019.
 //  Copyright © 2019 hyeoktae kwon. All rights reserved.
 //
-
 import UIKit
-
 class PlayGameVC: UIViewController {
     
     let omokCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -19,10 +17,10 @@ class PlayGameVC: UIViewController {
     
     var timer = Timer()
     var timeValue = 61
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = .white
         view.addSubview(omokCollectionView)
         omokCollectionView.frame = view.frame
         omokCollectionView.delegate = self
@@ -36,9 +34,7 @@ class PlayGameVC: UIViewController {
         setAutoLayout()
         configure()
         
-        //        DispatchQueue.global().async {
-        //            print("--------------------------[DispatchQueue 실행]--------------------------")
-        
+        // 현재 화면이 뜨자마자 실행
         self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.timerDispatchQueue(timer:)), userInfo: nil, repeats: true)
     }
     
@@ -100,7 +96,7 @@ class PlayGameVC: UIViewController {
         
         if layoutState {
             let layout = omokCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
-//            layout.itemSize = omokCollectionView.frame.size
+            //            layout.itemSize = omokCollectionView.frame.size
             layout.scrollDirection = .horizontal
             
             omokCollectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -124,21 +120,19 @@ class PlayGameVC: UIViewController {
         omokCollectionView.scrollToItem(at: indexPath, at: [.centeredHorizontally], animated: true)
     }
 }
-
 extension PlayGameVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 2
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-       
+        
         if indexPath.row == 0 {
-             let omokRoomCell = collectionView.dequeueReusableCell(withReuseIdentifier: "omokGameCell", for: indexPath) as! OmokGameCell
+            let omokRoomCell = collectionView.dequeueReusableCell(withReuseIdentifier: "omokGameCell", for: indexPath) as! OmokGameCell
             omokRoomCell.scrollBtn.addTarget(self, action: #selector(slideToChatCell(_:)), for: .touchUpInside)
-
             return omokRoomCell
         } else {
-             let chatRoomCell = collectionView.dequeueReusableCell(withReuseIdentifier: "chatRoomCell", for: indexPath) as! ChatRoomCell
+            let chatRoomCell = collectionView.dequeueReusableCell(withReuseIdentifier: "chatRoomCell", for: indexPath) as! ChatRoomCell
             chatRoomCell.backBtn.addTarget(self, action: #selector(slideToOmokCell(_:)), for: .touchUpInside)
             
             return chatRoomCell

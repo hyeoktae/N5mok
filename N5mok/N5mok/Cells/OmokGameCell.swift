@@ -10,7 +10,7 @@ import UIKit
 
 class OmokGameCell: UICollectionViewCell {
     
-   
+    
     
     let scrollBtn = UIButton()
     

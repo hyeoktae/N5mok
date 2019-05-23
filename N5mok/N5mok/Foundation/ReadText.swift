@@ -68,11 +68,12 @@ func postman(_ input: String, completion: @escaping (Data?)->()) {
     
 }
 
-func initializePlayer(text: String, vc: PopUpVC) {
+func initializePlayer(text: String, vc: PopUpVC, completion: @escaping ()->()) {
     postman(text){data in
         do {
             try player = AVAudioPlayer(data: data!)
             player.play()
+            completion()
         } catch(let error as NSError) {
             print("플레이어 초기화 실패")
             print("code: \(error.code), message: \(error.localizedDescription)")

@@ -10,6 +10,8 @@ import UIKit
 
 class PopUpVC: UIViewController {
     
+    let playGameVC = PlayGameVC()
+    
     var vs = String()
     let baseView = UIView()
     let titleLabel = UILabel()
@@ -80,7 +82,12 @@ class PopUpVC: UIViewController {
     @objc private func alertActionButtonAction(_ sender: UIButton) {
         switch sender.tag {
         case 1:
-            initializePlayer(text: "\(vs)님과 오목을 시작합니다.", vc: self)
+            initializePlayer(text: "\(vs)님과 오목을 시작합니다.", vc: self) {
+                ()
+            }
+            present(playGameVC, animated: true, completion: {
+                ()
+            })
         case 2:
             dismiss(animated: true)
         default:

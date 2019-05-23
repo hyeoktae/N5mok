@@ -60,6 +60,12 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="chatTextBubbleView" destination="BnZ-VM-3to" id="x7s-yk-MRy"/>
+                <outlet property="chatTextView" destination="E35-GC-PPY" id="imj-ro-6Pa"/>
+                <outlet property="stackView" destination="dSa-JF-EUw" id="ugT-S6-M3x"/>
+                <outlet property="userNameLabel" destination="exq-8p-FcE" id="9M9-zC-ETD"/>
+            </connections>
             <point key="canvasLocation" x="131.8840579710145" y="144.97767857142856"/>
         </tableViewCell>
     </objects>
