@@ -14,9 +14,11 @@ class PlayGameVC: UIViewController {
     let timerMessageLabel = UILabel()
     let timerLabel = UILabel()
     
-    
     var timer = Timer()
     var timeValue = 61
+    
+    var viewBottomSafeInset: CGFloat = 1
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,6 +35,8 @@ class PlayGameVC: UIViewController {
         
         setAutoLayout()
         configure()
+        
+        
         
         // 현재 화면이 뜨자마자 실행
         self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.timerDispatchQueue(timer:)), userInfo: nil, repeats: true)
@@ -83,8 +87,6 @@ class PlayGameVC: UIViewController {
         timerLabel.font = UIFont.systemFont(ofSize: 20)
         timerLabel.text = ""
         
-        
-        
     }
     
     
@@ -104,6 +106,8 @@ class PlayGameVC: UIViewController {
             omokCollectionView.leadingAnchor.constraint(equalTo: safeGuide.leadingAnchor).isActive = true
             omokCollectionView.trailingAnchor.constraint(equalTo: safeGuide.trailingAnchor).isActive = true
             omokCollectionView.bottomAnchor.constraint(equalTo: safeGuide.bottomAnchor).isActive = true
+            
+            viewBottomSafeInset = view.safeAreaInsets.bottom
             
         }
     }
@@ -133,6 +137,8 @@ extension PlayGameVC: UICollectionViewDataSource, UICollectionViewDelegate, UICo
             return omokRoomCell
         } else {
             let chatRoomCell = collectionView.dequeueReusableCell(withReuseIdentifier: "chatRoomCell", for: indexPath) as! ChatRoomCell
+            chatRoomCell.viewBottomSafeInset = self.viewBottomSafeInset // 전체 뷰의 바텀 세이프인셋을 cell에 알려주기 위함
+            
             chatRoomCell.backBtn.addTarget(self, action: #selector(slideToOmokCell(_:)), for: .touchUpInside)
             
             return chatRoomCell
