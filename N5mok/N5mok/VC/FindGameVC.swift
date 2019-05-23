@@ -27,6 +27,7 @@ final class FindGameVC: UIViewController {
                     challengerVC.titleLabel.text = "\(data ?? "")님의 도전을 받을래?!"
                     challengerVC.yesBtn.isEnabled = true
                     challengerVC.modalPresentationStyle = .overCurrentContext
+                    
                     self.present(challengerVC, animated: true, completion: {
                         ()
                     })
@@ -182,7 +183,7 @@ final class FindGameVC: UIViewController {
                     guard let data = data, let image = UIImage(data: data) else { return }
                     
                     DispatchQueue.main.async {
-                        if url == thumbnailImageLink {
+                        if url == profileImageLink {
                             playerProfileImg = image
                             self?.profileImg.image = playerProfileImg
                         }
@@ -224,7 +225,11 @@ final class FindGameVC: UIViewController {
         profileImg.topAnchor.constraint(equalTo: guide.topAnchor, constant: 20).isActive = true
         profileImg.leadingAnchor.constraint(equalTo: guide.leadingAnchor, constant: 20).isActive = true
         profileImg.trailingAnchor.constraint(equalTo: IDlabel.leadingAnchor, constant: -50).isActive = true
-        profileImg.bottomAnchor.constraint(equalTo: IDlabel.bottomAnchor).isActive = true
+//        profileImg.bottomAnchor.constraint(equalTo: IDlabel.bottomAnchor).isActive = true
+        profileImg.widthAnchor.constraint(equalTo: guide.widthAnchor, multiplier: 0.3).isActive = true
+        profileImg.heightAnchor.constraint(equalTo: profileImg.widthAnchor, multiplier: 1).isActive = true
+        profileImg.layer.cornerRadius = profileImg.frame.width/2
+        profileImg.layer.masksToBounds = true
         
         
         IDlabel.leadingAnchor.constraint(equalTo: profileImg.trailingAnchor, constant: 50).isActive = true
@@ -248,16 +253,24 @@ extension FindGameVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cellBtn = UIButton(type: .custom)
-        cellBtn.frame = CGRect(x: 0, y: 0, width: 40, height: 30)
-        cellBtn.setTitle("한판?", for: .normal)
+        cellBtn.frame = CGRect(x: 0, y: 0, width: 37, height: 37)
+//        cellBtn.setTitle("한판?", for: .normal)
+        cellBtn.setImage(UIImage(named: "vsImage"), for: .normal)
         cellBtn.tag = indexPath.row
         cellBtn.addTarget(self, action: #selector(FindGameVC.didTapCellBtn(_:)), for: .touchUpInside)
+        cellBtn.layer.cornerRadius = cellBtn.frame.width/2
+        cellBtn.layer.masksToBounds = true
+        cellBtn.layer.opacity = 0.2
+        
         
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath)
         
         cell.textLabel?.text = loginUsers[indexPath.row].name
         cell.imageView?.image = loginUsers[indexPath.row].playerImg
+        cell.imageView?.layer.cornerRadius = 10
+        cell.imageView?.layer.masksToBounds = true
+        
         cell.backgroundColor = #colorLiteral(red: 0.7254902124, green: 0.4784313738, blue: 0.09803921729, alpha: 1)
 //        cell.layer.borderWidth = 1
         cell.accessoryView = cellBtn as UIView

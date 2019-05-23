@@ -92,6 +92,7 @@ class PopUpVC: UIViewController {
             initializePlayer(text: "\(vs)님과 오목을 시작합니다.") {
                 ()
             }
+            playGameVC.otherPartyName = vs
             present(playGameVC, animated: true, completion: {
 //                self.dismiss(animated: true, completion: {
 //                    ()
