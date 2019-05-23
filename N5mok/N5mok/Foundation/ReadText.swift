@@ -68,7 +68,7 @@ func postman(_ input: String, completion: @escaping (Data?)->()) {
     
 }
 
-func initializePlayer(text: String, vc: PopUpVC, completion: @escaping ()->()) {
+func initializePlayer(text: String, completion: @escaping ()->()) {
     postman(text){data in
         do {
             try player = AVAudioPlayer(data: data!)

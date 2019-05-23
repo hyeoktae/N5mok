@@ -1,5 +1,5 @@
 //
-//  PopUpVC.swift
+//  ChallengerVC.swift
 //  N5mok
 //
 //  Created by hyeoktae kwon on 23/05/2019.
@@ -8,8 +8,8 @@
 
 import UIKit
 
-class PopUpVC: UIViewController {
-    
+class ChallengerVC: UIViewController {
+
     let playGameVC = PlayGameVC()
     
     var vs = String()
@@ -17,7 +17,7 @@ class PopUpVC: UIViewController {
     let titleLabel = UILabel()
     let yesBtn = UIButton()
     let noBtn = UIButton()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
@@ -88,7 +88,8 @@ class PopUpVC: UIViewController {
     @objc private func alertActionButtonAction(_ sender: UIButton) {
         switch sender.tag {
         case 1:
-            dbRef.child("Users").child(vs).updateChildValues(["vs":playerID])
+            dbRef.child("Users").child(playerID).updateChildValues(["vs":"ok"])
+            dbRef.child("Users").child(vs).updateChildValues(["vs":"ok"])
             initializePlayer(text: "\(vs)님과 오목을 시작합니다.") {
                 ()
             }
@@ -106,6 +107,6 @@ class PopUpVC: UIViewController {
         }
         
     }
-    
-}
+    }
+
 

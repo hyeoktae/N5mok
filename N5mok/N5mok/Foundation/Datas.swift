@@ -13,6 +13,10 @@ import UIKit
 
 let dbRef = Database.database().reference()
 
+let popUpVC = PopUpVC()
+
+let challengerVC = ChallengerVC()
+
 var userNames = [String] ()
 
 // MARK: - User
@@ -39,7 +43,7 @@ struct UI {
     static let minScale: CGFloat = 0.3
 }
 
-var playerID = String()
+var playerID: String = ""
 
 var playerProfileImg = UIImage()
 
@@ -84,8 +88,21 @@ func downloadUsersInfo(completion: @escaping (Bool)->()) {
     }
 }
 
-func observeUsers() {
-    dbRef.child("game")
+func observeVS(completion: @escaping (Bool)->()) {
+    var flag = false
+    dbRef.child("Users").child("\(playerID)").child("vs").observe(.childChanged) { (snapshot) in
+        print("slkdafjwei;afjasl;dkfjwe;lfkjsda;klfweja;flsadkjf;l")
+//        let value = ((snapshot.value as! [String:String]).values) as! String
+//        print("value: ", value)
+//        guard value != "" else {
+//            flag = false
+//            completion(flag)
+//            return }
+//        flag = true
+//        popUpVC.titleLabel.text = "\(value)님의 도전을 받을래?!"
+//        popUpVC.yesBtn.isEnabled = true
+//        completion(flag)
+    }
 }
 
 

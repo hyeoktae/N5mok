@@ -10,13 +10,30 @@ import UIKit
 
 final class FindGameVC: UIViewController {
     
-    let popUpVC = PopUpVC()
+    
     
     private var firstMenuContainer: [UIButton] = []
     
     var loginUsers = [User]()
     
     let refreshC = UIRefreshControl()
+    
+    var popUpFlag: String = ""  {
+        willSet(newValue){
+            dbRef.child("Users").child("\(newValue)").child("vs").observe(.value) { (snap) in
+                let data = (snap.value) as? String
+                if data != "" && data != "ok" {
+                    challengerVC.vs = data ?? ""
+                    challengerVC.titleLabel.text = "\(data ?? "")님의 도전을 받을래?!"
+                    challengerVC.yesBtn.isEnabled = true
+                    challengerVC.modalPresentationStyle = .overCurrentContext
+                    self.present(challengerVC, animated: true, completion: {
+                        ()
+                    })
+                }
+            }
+        }
+    }
     
     var IDlabel: UILabel = {
         let label = UILabel()
@@ -58,6 +75,7 @@ final class FindGameVC: UIViewController {
             }
         }
     }
+    
     
     func addSubViews() {
         let views = [IDTblView, profileImg, IDlabel]
@@ -152,6 +170,7 @@ final class FindGameVC: UIViewController {
                 else { return }
             
             playerID = nickName
+            self?.popUpFlag = nickName
             self?.IDlabel.text = playerID
             
             let imageLinks = [thumbnailImageLink, profileImageLink]
