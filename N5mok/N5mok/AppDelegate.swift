@@ -63,9 +63,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setupRootViewController() {
         let vc = KOSession.shared().isOpen() ? FindGameVC() : LoginVC()
         print(vc)
+        let playGameVC = PlayGameVC()
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = .white
-        window?.rootViewController = vc
+        window?.rootViewController = playGameVC
         window?.makeKeyAndVisible()
         
     }
